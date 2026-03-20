@@ -32,29 +32,9 @@ deconstruct（随时拆概念）
 
 ## 安装
 
-一键安装到 Claude Code skills 目录：
-
 ```bash
-git clone https://github.com/dontbesilent2025/dbskill.git /tmp/dbskill && \
-for d in /tmp/dbskill/dbs*/; do
-  name=$(basename "$d")
-  mkdir -p ~/.claude/skills/"$name"
-  cp "$d"SKILL.md ~/.claude/skills/"$name"/SKILL.md
-done && \
-rm -rf /tmp/dbskill && \
-echo "✅ dbskill 已安装，重启 Claude Code 后用 /dbs 启动"
-```
-
-一键更新：
-
-```bash
-git clone https://github.com/dontbesilent2025/dbskill.git /tmp/dbskill && \
-for d in /tmp/dbskill/dbs*/; do
-  name=$(basename "$d")
-  cp "$d"SKILL.md ~/.claude/skills/"$name"/SKILL.md
-done && \
-rm -rf /tmp/dbskill && \
-echo "✅ dbskill 已更新"
+# 安装 / 更新（同一条命令）
+cd ~/.claude/skills && git clone https://github.com/dontbesilent2025/dbskill.git /tmp/dbskill && cp -r /tmp/dbskill/dbs* . && rm -rf /tmp/dbskill
 ```
 
 ## 使用方式
@@ -62,18 +42,11 @@ echo "✅ dbskill 已更新"
 1. 在 Claude Code 中用 `/dbs` 启动，或直接调用具体 skill
 2. 首次使用会自动路由到最合适的诊断工具
 
-## 知识库
+## 原理
 
-skill 依赖本地知识库（未包含在仓库中），从推文中按 8 个主题分类：
+每个 SKILL.md 里已经包含了完整的方法论框架、诊断流程和说话风格定义，开箱即用。
 
-- 商业本体论（609 条）
-- IP 与内容（872 条）
-- 思维与哲学（135 条）
-- 实操运营（206 条）
-- AI 与工具（559 条）
-- 教育与课程（59 条）
-- 心理与执行（69 条）
-- 人生与认知（33 条）
+这些框架从 12,307 条推文中提炼而来，覆盖商业本体论、IP 与内容、思维与哲学、实操运营、AI 与工具、心理与执行等方向。
 
 ## 作者
 
