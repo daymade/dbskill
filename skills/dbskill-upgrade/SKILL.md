@@ -30,13 +30,7 @@ fi
 ### Step 2: 获取当前版本
 
 ```bash
-OLD_VERSION="unknown"
-for skill_dir in "$HOME/.claude/skills"/dbs*; do
-  if [ -f "$skill_dir/../../VERSION" ]; then
-    OLD_VERSION=$(cat "$skill_dir/../../VERSION" 2>/dev/null || echo "unknown")
-    break
-  fi
-done
+OLD_VERSION=$(cat "$HOME/.claude/skills/dbskill-upgrade/../../VERSION" 2>/dev/null || echo "unknown")
 echo "Current version: $OLD_VERSION"
 ```
 
